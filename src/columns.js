@@ -1,4 +1,5 @@
 import { Button } from "antd";
+import Like from "./like.png";
 
 export const columns = ({ handleCount, like }) => {
   return [
@@ -38,7 +39,10 @@ export const columns = ({ handleCount, like }) => {
         like ? (
           <h5>{record.fav}</h5>
         ) : (
-          <Button onClick={() => handleCount(record)}>Like</Button>
+          <Button onClick={() => handleCount(record)}>
+            <img src={Like} width={25} heigth={25} alt="like" />
+            Like
+          </Button>
         ),
     },
   ];

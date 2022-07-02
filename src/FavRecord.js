@@ -2,14 +2,12 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { columns } from "./columns";
 import { Table, Input } from "antd";
-import { useNavigate } from "react-router-dom";
 
 const { Search } = Input;
 
 export default function FavRecord() {
   const { favRecord } = useSelector((state) => state.app);
   const [searchData, setsearchData] = useState([]);
-  const navigate = useNavigate();
 
   const handleSearch = (e) => {
     const search = e?.target?.value.toLowerCase();

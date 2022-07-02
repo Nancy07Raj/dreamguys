@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { Table, Input } from "antd";
+import { Table, Input, message } from "antd";
 import { Circles } from "react-loader-spinner";
 import { getFavList, setFavRecords } from "./store/appslice";
 import "antd/dist/antd.css";
@@ -11,7 +10,6 @@ const { Search } = Input;
 
 function FavList() {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const { favList, loader } = useSelector((state) => state.app);
   const [searchData, setsearchData] = useState([]);
   useEffect(() => {
@@ -24,6 +22,7 @@ function FavList() {
 
   const handleCount = (record) => {
     dispatch(setFavRecords(record));
+    message.info("Added to Favourite List");
   };
 
   const handleSearch = (e) => {
@@ -44,7 +43,8 @@ function FavList() {
           style={{
             display: "flex",
             flexDirection: "column",
-            marginTop: "10px",
+            marginTop: "40px",
+            margin: "0 10px",
           }}
         >
           <Search
