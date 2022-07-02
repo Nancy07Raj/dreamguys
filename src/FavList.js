@@ -55,7 +55,6 @@ function FavList() {
           style={{
             display: "flex",
             flexDirection: "column",
-            marginTop: "0px",
             margin: "5px 10px",
           }}
         >

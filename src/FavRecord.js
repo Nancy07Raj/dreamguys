@@ -23,7 +23,7 @@ export default function FavRecord() {
         style={{
           display: "flex",
           flexDirection: "column",
-          marginTop: "10px",
+          margin: "5px 10px",
         }}
       >
         <Search
@@ -32,6 +32,7 @@ export default function FavRecord() {
           style={{ width: "200px", marginBottom: "10px" }}
         />
         <Table
+          size="small"
           dataSource={searchData.length ? searchData : favRecord}
           columns={columns({ like: true })}
           pagination={false}
