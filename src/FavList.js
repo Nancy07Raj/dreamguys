@@ -40,6 +40,7 @@ function FavList() {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
+          margin: "100px 0",
         }}
       >
         {loader && (
@@ -70,7 +71,16 @@ function FavList() {
           />
         </div>
       ) : (
-        <h1>Loading...</h1>
+        <h1
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            margin: "100px 0",
+          }}
+        >
+          Loading...
+        </h1>
       )}
     </div>
   );
