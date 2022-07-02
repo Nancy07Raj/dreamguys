@@ -35,9 +35,18 @@ function FavList() {
 
   return (
     <div>
-      {loader && (
-        <Circles height="50" width="50" color="blue" ariaLabel="loading" />
-      )}
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        {loader && (
+          <Circles height="50" width="50" color="blue" ariaLabel="loading" />
+        )}
+      </div>
+
       {favList.data && !loader ? (
         <div
           style={{
