@@ -8,6 +8,11 @@ const { Search } = Input;
 export default function FavRecord() {
   const { favRecord } = useSelector((state) => state.app);
   const [searchData, setsearchData] = useState([]);
+  const [paginate, setPaginate] = useState({
+    current: 1,
+    defaultPageSize: 6,
+    total: favRecord?.length,
+  });
 
   const handleSearch = (e) => {
     const search = e?.target?.value.toLowerCase();
@@ -15,6 +20,10 @@ export default function FavRecord() {
       (i) => i.first_name.toLowerCase() === search
     );
     setsearchData(searchValue);
+  };
+
+  const handlePagination = (pagination) => {
+    setPaginate({ ...paginate, current: pagination.current });
   };
 
   return (
@@ -29,13 +38,14 @@ export default function FavRecord() {
         <Search
           placeholder="Search First Name"
           onChange={(e) => handleSearch(e)}
-          style={{ width: "200px", marginBottom: "10px" }}
+          style={{ width: "200px", margin: "10px 0" }}
         />
         <Table
           size="small"
           dataSource={searchData.length ? searchData : favRecord}
           columns={columns({ like: true })}
-          pagination={false}
+          pagination={paginate}
+          onChange={handlePagination}
           rowKey="id"
         />
       </div>
