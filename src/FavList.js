@@ -35,25 +35,16 @@ function FavList() {
 
   return (
     <div>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          margin: "100px 0",
-        }}
-      >
-        {loader && (
-          <Circles height="50" width="50" color="blue" ariaLabel="loading" />
-        )}
-      </div>
+      {loader && (
+        <Circles height="50" width="50" color="blue" ariaLabel="loading" />
+      )}
 
       {favList.data && !loader ? (
         <div
           style={{
             display: "flex",
             flexDirection: "column",
-            marginTop: "20px",
+            marginTop: "0px",
             margin: "0 10px",
           }}
         >
@@ -71,16 +62,7 @@ function FavList() {
           />
         </div>
       ) : (
-        <h1
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            margin: "100px 0",
-          }}
-        >
-          Loading...
-        </h1>
+        <h1>Loading...</h1>
       )}
     </div>
   );
