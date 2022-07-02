@@ -1,3 +1,5 @@
+import { Button } from "antd";
+
 export const columns = ({ handleCount, like }) => {
   return [
     {
@@ -36,9 +38,7 @@ export const columns = ({ handleCount, like }) => {
         like ? (
           <h5>{record.fav}</h5>
         ) : (
-          <div onClick={() => handleCount(record)}>
-            <button>Like</button>
-          </div>
+          <Button onClick={() => handleCount(record)}>Like</Button>
         ),
     },
   ];
