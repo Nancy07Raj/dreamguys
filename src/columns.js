@@ -15,7 +15,7 @@ const count = {
 export const columns = ({ handleCount, like, favRecord }) => {
   return [
     {
-      title: "Sno",
+      title: "ID",
       dataIndex: "id",
       key: "id",
     },

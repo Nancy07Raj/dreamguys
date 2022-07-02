@@ -26,7 +26,7 @@ root.render(
               </Menu.Item>
             </Menu>
           </Header>
-          <Content>
+          <Content style={{ minHeight: "89.5vh" }}>
             <Routes>
               <Route path="/" element={<FavList />} />
               <Route path="/fav-record" element={<FavRecord />} />
