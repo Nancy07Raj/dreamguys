@@ -56,7 +56,7 @@ function FavList() {
             display: "flex",
             flexDirection: "column",
             marginTop: "0px",
-            margin: "0 10px",
+            margin: "5px 10px",
           }}
         >
           <Search
@@ -65,6 +65,7 @@ function FavList() {
             style={{ width: "200px", margin: "10px 0" }}
           />
           <Table
+            size="small"
             columns={columns({ handleCount, favRecord })}
             dataSource={searchData.length ? searchData : favList?.data}
             pagination={{ total: favList?.total, current: favList?.page }}
