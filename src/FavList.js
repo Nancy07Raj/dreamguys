@@ -10,7 +10,7 @@ const { Search } = Input;
 
 function FavList() {
   const dispatch = useDispatch();
-  const { favList, loader } = useSelector((state) => state.app);
+  const { favList, loader, favRecord } = useSelector((state) => state.app);
   const [searchData, setsearchData] = useState([]);
   useEffect(() => {
     dispatch(getFavList({ page: 1, count: 6 }));
@@ -36,10 +36,21 @@ function FavList() {
   return (
     <div>
       {loader && (
-        <Circles height="50" width="50" color="blue" ariaLabel="loading" />
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            margin: "230px 0",
+          }}
+        >
+          <Circles height="50" width="50" color="blue" ariaLabel="loading" />
+          <h1>Loading...</h1>
+        </div>
       )}
 
-      {favList.data && !loader ? (
+      {favList.data && !loader && (
         <div
           style={{
             display: "flex",
@@ -51,18 +62,16 @@ function FavList() {
           <Search
             placeholder="Search First Name"
             onChange={(e) => handleSearch(e)}
-            style={{ width: "200px", marginBottom: "10px" }}
+            style={{ width: "200px", margin: "10px 0" }}
           />
           <Table
-            columns={columns({ handleCount })}
+            columns={columns({ handleCount, favRecord })}
             dataSource={searchData.length ? searchData : favList?.data}
             pagination={{ total: favList?.total, current: favList?.page }}
             onChange={handlePaginationChange}
             rowKey="id"
           />
         </div>
-      ) : (
-        <h1>Loading...</h1>
       )}
     </div>
   );

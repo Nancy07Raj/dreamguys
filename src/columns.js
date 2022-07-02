@@ -1,7 +1,18 @@
 import { Button } from "antd";
 import Like from "./like.png";
 
-export const columns = ({ handleCount, like }) => {
+const count = {
+  position: "absolute",
+  background: "#f97729",
+  borderRadius: "50%",
+  right: "-7px",
+  top: "-7px",
+  fontSize: "8px",
+  padding: "2px 6px",
+  color: "white",
+};
+
+export const columns = ({ handleCount, like, favRecord }) => {
   return [
     {
       title: "Sno",
@@ -35,15 +46,20 @@ export const columns = ({ handleCount, like }) => {
       title: "Like",
       dataIndex: "like",
       key: "like",
-      render: (_, record) =>
-        like ? (
-          <h5>{record.fav}</h5>
-        ) : (
+      render: (_, record) => {
+        const fav = favRecord?.find((i) => i.id === record.id);
+
+        return !like ? (
           <Button onClick={() => handleCount(record)}>
+            <div style={{ position: "relative" }}>
+              {fav && <span style={count}>{fav?.fav}</span>}
+            </div>
             <img src={Like} width={25} heigth={25} alt="like" />
-            Like
           </Button>
-        ),
+        ) : (
+          <h5>{record.fav}</h5>
+        );
+      },
     },
   ];
 };
