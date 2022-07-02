@@ -21,7 +21,6 @@ export default function FavRecord() {
 
   return (
     <>
-      <button onClick={() => navigate(`/`)}>List</button>
       <div
         style={{
           display: "flex",

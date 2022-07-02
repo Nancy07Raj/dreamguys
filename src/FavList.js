@@ -36,9 +36,6 @@ function FavList() {
 
   return (
     <div>
-      <button onClick={() => navigate(`/fav-record`)}>
-        Move to Fav Records
-      </button>
       {loader && (
         <Circles height="50" width="50" color="blue" ariaLabel="loading" />
       )}

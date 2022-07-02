@@ -22,7 +22,7 @@ root.render(
                 <Link to="/">List</Link>
               </Menu.Item>
               <Menu.Item key="2">
-                <Link to="/fav-records">Favourite records</Link>
+                <Link to="/fav-record">Favourite records</Link>
               </Menu.Item>
             </Menu>
           </Header>
