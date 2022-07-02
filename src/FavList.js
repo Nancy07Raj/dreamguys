@@ -53,7 +53,7 @@ function FavList() {
           style={{
             display: "flex",
             flexDirection: "column",
-            marginTop: "40px",
+            marginTop: "20px",
             margin: "0 10px",
           }}
         >
